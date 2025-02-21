@@ -12,7 +12,8 @@ export const metadata = {
   title: "Career Orbit Ai - AI Career guide",
   description: " ",
 };
-const inter = Inter({ subset: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
+
 
 export default function RootLayout({ children }) {
   return (
