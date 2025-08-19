@@ -67,12 +67,6 @@ export async function updateUser(data) {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
   
-    const user = await db.user.findUnique({
-      where: { clerkUserId: userId },
-    });
-  
-    if (!user) throw new Error("User not found");
-  
     try {
       const user = await db.user.findUnique({
         where: {
@@ -88,7 +82,8 @@ export async function updateUser(data) {
       };
     } catch (error) {
       console.error("Error checking onboarding status:", error.message);
-      throw new Error("Failed to check onboarding status");
+      // Be permissive: treat as not onboarded rather than throwing
+      return { isOnboarded: false };
     }
 
 }
