@@ -1,4 +1,4 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { ChevronDown, ChevronsDown, FileText, GraduationCap, LayoutDashboard, PenBox, StarIcon } from 'lucide-react'
 import React from 'react'
 import { Button } from './ui/button'
@@ -67,11 +67,9 @@ const Header = async () => {
          
 
           <SignedOut>
-           
-            <SignInButton afterSignInUrl='/post-sign-in' signUpUrl='/sign-up'>
-              <Button variant="outline"   >Sign In</Button>
-            </SignInButton>
-          
+            <Link href="/sign-in">
+              <Button variant="outline">Sign In</Button>
+            </Link>
           </SignedOut>
 
           <SignedIn>
